@@ -31,6 +31,17 @@ void print(){
          ptr= ptr->next;
      }
 }
+void in_end(int a){
+    node * newnode = new node();
+    node * ptr = new node();
+    newnode->next=start;
+    newnode->data=a;
+    ptr=start;
+    while(ptr->next!=start){
+        ptr=ptr->next;
+    }
+    ptr->next=newnode;
+}
 int main(){
     start = NULL;
     insert(3,0);
@@ -38,6 +49,9 @@ int main(){
     insert(18,2);
     insert(0,3);
     insert(2,4);
+    print();
+    cout<<endl;
+    in_end(100);
     print();
     return 0;
 }
