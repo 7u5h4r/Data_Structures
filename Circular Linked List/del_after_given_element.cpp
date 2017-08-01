@@ -37,6 +37,9 @@ void del(int da){
     while(ptr->data!=da){
         ptr=ptr->next;
     }
+    if(ptr->next==start){
+        start=ptr->next->next;
+    }
     ptr->next=ptr->next->next;
 }
 int main(){
