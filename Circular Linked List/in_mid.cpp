@@ -35,13 +35,16 @@ void in_mid(int da,int c){
     node *ptr = new node();
     node *newnode = new node();
     ptr=start;
-    int co=0;
-    if(c=0){
-        start=ptr->next;
+    if(c==0){
+        newnode->data = da;
+        newnode->next = start;
+        start=newnode;
+        return;
     }
-    while(c!=co-1){
+    c--;
+    while(c){
         ptr=ptr->next;
-        co++;
+        c--;
     }
     newnode->data = da;
     newnode->next = ptr->next;
@@ -56,7 +59,7 @@ int main(){
     insert(2,4);
     print();
     cout<<endl;
-    in_mid(100,3);
+    in_mid(100,4);
     print();
     return 0;
 }

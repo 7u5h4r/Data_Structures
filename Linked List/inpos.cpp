@@ -33,13 +33,16 @@ void in_pos(int da,int c){
     node *ptr = new node();
     node *newnode = new node();
     ptr=start;
-    int co=0;
-    if(c=0){
-        start=ptr->next;
+    if(c==0){
+        newnode->data = da;
+        newnode->next = start;
+        start=newnode;
+        return;
     }
-    while(c!=co-1){
+    c--;
+    while(c){
         ptr=ptr->next;
-        co++;
+        c--;
     }
     newnode->data = da;
     newnode->next = ptr->next;
@@ -54,8 +57,7 @@ int main(){
     insert(11,4);
     print();
     cout<<endl;
-    in_pos(8,3);
+    in_pos(8,4);
     print();
-    cout<<1;
     return 0;
 }
