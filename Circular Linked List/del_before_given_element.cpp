@@ -33,9 +33,27 @@ void print(){
 }
 void del(int da){
     node *ptr = new node();
-    node *newnode = new node();
     ptr=start;
-    while(ptr->next->data!=da){
+    node *st;
+    if(ptr->next->data==da){
+        st=ptr->next;
+        while(ptr->next!=start){
+            ptr=ptr->next;
+        }
+        ptr->next=st;
+        start=st;
+        return;
+    }
+    else if(ptr->data==da){
+        node *ptr=new node();
+        ptr=start;
+        while(ptr->next->next!=start){
+            ptr=ptr->next;
+        }
+        ptr->next=start;
+        return;
+    }
+    while(ptr->next->next->data!=da){
         ptr=ptr->next;
     }
     ptr->next=ptr->next->next;
@@ -49,7 +67,7 @@ int main(){
     insert(2,4);
     print();
     cout<<endl;
-    del(2);
+    del(3);
     print();
     return 0;
 }
