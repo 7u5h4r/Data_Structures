@@ -1,7 +1,0 @@
-delete alt elements
-123456
-135
-
-find smallest element in ll and del it
-
-find reverse of a ll
